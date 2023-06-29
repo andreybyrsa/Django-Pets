@@ -1,0 +1,30 @@
+{% extends 'auth/AuthPage.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block auth-greetings %}
+  <h1><b>{{ time }}!</b></h1>
+  <h3>Создай аккаунт :)</h3>
+{% endblock %}
+
+{% block form-label %}
+  <h2>регистрация</h2>
+{% endblock %}
+
+{% block inputs %}
+  <img id="image" class="auth-page__profile-picture" alt="profile picture" />
+  {{ register_form.profile_picture }}
+  {{ register_form.first_name }}
+  {{ register_form.last_name }}
+  {{ register_form.username }}
+  {{ register_form.password }}
+  <button id="upload-image-button" type="button">
+    <span id="upload-image-text-button">Добавить картинку профиля</span>
+    <div id="upload-text-alert" class="auth-page__upload-alert">
+      <i class="bi bi-check2 auth-page__upload-icon"></i>
+      <span>Картинка добавлена</span>
+    </div>
+  </button>
+{% endblock %}
+
+{% block button-text %}Зарегистрироваться{% endblock %}

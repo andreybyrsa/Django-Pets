@@ -1,0 +1,19 @@
+{% extends 'auth/AuthPage.html' %}
+
+{% block title %}Вход в аккаунт{% endblock %}
+
+{% block auth-greetings %}
+  <h1><b>Привет!</b></h1>
+  <h3>С возвращением :)</h3>
+{% endblock %}
+
+{% block form-label %}
+  <h2>войти</h2>
+{% endblock %}
+
+{% block inputs %}
+  {{ login_form.username }}
+  {{ login_form.password }}
+{% endblock %}
+
+{% block button-text %}Авторизоваться{% endblock %}

@@ -1,0 +1,28 @@
+{% if messages %}
+  {% for message in messages %}
+    <div id="alert-modal" class="alert-modal">
+      <div class="alert-modal__header">
+        <button id="close-alert-modal-button" class="alert-modal__header-button">
+          <div class="alert-modal__header-icon"></div>
+          <div class="alert-modal__header-icon"></div>
+        </button>
+      </div>
+      
+      <div class="alert-modal__content">
+        {% if message.tags == 'error' %}
+          <div class="alert-modal__info alert-modal__info--error">
+            <i class="bi bi-x-octagon alert-modal__info-icon"></i>
+            <span class="alert-modal__title">{{ message.tags|title }}</span>
+          </div>
+        {% else %}
+          <div class="alert-modal__info alert-modal__info--success">
+            <i class="bi bi-check-circle alert-modal__info-icon"></i>
+            <span class="alert-modal__title">{{ message.tags|title }}</span>
+          </div>
+        {% endif %}
+        
+        <span class="alert-modal__message">{{ message }}</span>
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}

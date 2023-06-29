@@ -1,0 +1,142 @@
+@import '/static/core/less/main.less';
+
+/* Content */
+.auth-page {
+
+  &__content {
+    color: @white-color;
+
+    .flexible(center, center, column, @gap: 60px);
+  }
+
+  &__greetings {
+    width: 100%;
+    max-width: @default-max-width;
+
+    text-align: left;
+    font-size: 22px;
+
+    .flexible(@flex-direction: column, @gap: 4px);
+  }
+
+  &__form {
+
+    margin-top: 10px;
+
+    .flexible(center, @flex-direction: column, @gap: 10px);
+
+    &-wrapper {
+      width: 100%;
+      max-width: @default-max-width;
+
+      text-align: center;
+    }
+
+    &-input {
+      height: 44px;
+      width: 100%;
+      background-color: transparent;
+      .border(solid, @white-color, 0 0 1px);
+
+      &::placeholder {
+        color: @white-color;
+        font-weight: 300;
+      }
+    }
+  }
+
+  &__profile-picture {
+    width: 100px;
+    height: 100px;
+    background-color: @white-color;
+    .border(solid, @white-color, 5px, 50%);
+
+    display: none;
+  }
+
+  &__upload-input {
+    display: none;
+  }
+
+  &__upload-alert {
+    color: @success-color;
+    font-size: 16px;
+
+    .flexible(center, center, @gap: 4px);
+    display: none;
+  }
+
+  &__upload-icon {
+    font-size: 22px;
+
+    display: flex;
+  }
+
+  &__submit-button {
+    width: 80%;
+    height: 52px;
+    margin-top: 50px;
+    background-color: @secondary-color;
+    border-radius: 35px;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    transition: background-color @default-transition-settings;
+
+    &:active {
+      background-color: @black-color--blured;
+    }
+  }
+}
+
+/* Footer */
+.auth-page {
+  &__footer {
+    padding: 8px 30px;
+
+    .flexible(center, center, @gap: 16px);
+  }
+
+  &__nav-tab {
+    @parent: .auth-page__nav-tab;
+
+    min-width: 120px;
+    width: 160px;
+    height: 45px;
+    background-color: @black-color--blured;
+    border-radius: 20px;
+
+    font-size: 25px;
+    color: @black-color--lighted;
+
+    .flexible(center, center, @gap: 4px);
+
+    transition: background-color @default-transition-settings;
+
+    &-icon {
+      display: flex;
+
+      transition: color @default-transition-settings;
+    }
+
+    &-text {
+      font-size: 15px;
+
+      transition: color @default-transition-settings;
+    }
+
+    &--active {
+      color: @white-color;
+    }
+
+    &:active {
+      background-color: @white-color;
+
+      @{parent}-icon,
+      @{parent}-text {
+        color: @black-color--lighted;
+      }
+    }
+  }
+}

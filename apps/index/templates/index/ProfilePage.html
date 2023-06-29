@@ -1,0 +1,53 @@
+{% extends 'core/pages/PageLayout.html' %}
+{% load static %}
+
+{% block style-files %}
+  <link rel="stylesheet/less" href="{% static 'index/less/ProfilePage.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/HeaderBlock.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/AlertModal.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/LeftSideBar.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/BottomSideBar.less' %}" />
+{% endblock %}
+
+{% block title %}Страница профиля{% endblock %}
+
+{% block modal %}
+  {% include 'core/modals/AlertModal.html' %}
+  {% include 'core/modals/LeftSideBar.html' with sideBarTitle="Профиль" paths="index,profile,pets" %}
+  {% include 'core/modals/BottomSideBar.html' with inputs=update_form imageSrc=user.profile_picture %}
+{% endblock %}
+
+{% block header %}
+  {% include 'core/blocks/HeaderBlock.html' with pageClassName="profile-page" title="profile" %}
+{% endblock %}
+
+{% block content %}
+  {% if user.profile_picture %}
+    <img
+      class="profile-page__image"
+      src="{{ user.profile_picture }}"
+      alt="profile picture"
+    />
+  {% endif %}
+  <b>
+    <span class="profile-page__username">{{ user.username }}</span>
+  </b>
+
+  <div class="profile-page__info">
+    <div class="profile-page__info-cell">
+      <span>Имя: {{ user.first_name }}</span>
+    </div>
+    <div class="profile-page__info-cell">
+      <span>Фамилия: {{ user.last_name }}</span>
+    </div>
+  </div>
+
+  <button id="open-bottom-side-bar-button" class="profile-page__update-button">
+    Редактировать профиль
+  </button>
+{% endblock %}
+
+{% block script-files %}
+  <script type="text/javascript" src="{% static 'core/js/SideBar.js' %}"></script>
+  <script type="text/javascript" src="{% static 'index/js/ProfilePage.js' %}"></script>
+{% endblock %}

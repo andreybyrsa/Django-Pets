@@ -1,0 +1,105 @@
+@import '/static/core/less/main.less';
+
+.pet-modal {
+  width: 300px;
+  background-color: @white-color;
+  border-radius: 20px;
+
+  font-size: 18px;
+
+  .flexible(@flex-direction: column, @aling-self: center, @justify-self: center);
+  display: none;
+
+  &__header {
+    padding: 12px 12px 0;
+    width: 100%;
+
+    .flexible(@justify-content: flex-end);
+
+    &-button {
+      position: relative;
+
+      width: 30px;
+      height: 30px;
+    }
+
+    &-icon {
+      position: absolute;
+
+      height: 3px;
+      width: 100%;
+      background-color: @black-color;
+      border-radius: 12px;
+    }
+
+    &-icon:first-of-type {
+      transform: rotate(45deg);
+    }
+
+    &-icon:last-of-type {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__content {
+    padding: 25px;
+    height: 100%;
+    width: 100%;
+
+    text-align: center;
+
+    .flexible(center, center, column, @gap: 12px);
+  }
+
+  &__image {
+    height: 150px;
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  &__description {
+    padding: 12px;
+    height: 180px;
+    width: 100%;
+    background-color: @white-color;
+    .border(solid, @black-color, 2px, 20px);
+
+    resize: none;
+  }
+
+  &--opened {
+    animation: openPetModal @default-animation-settings;
+  }
+
+  &--closed {
+    animation: closePetModal @default-animation-settings;
+  }
+}
+
+@keyframes openPetModal {
+  from {
+    opacity: 0;
+
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+@keyframes closePetModal {
+  from {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+
+    transform: scale(0.95);
+  }
+}

@@ -1,0 +1,28 @@
+<div id="bottom-side-bar" class="bottom-side-bar">
+  <button id="update-image-button">
+    <img
+      id="image"
+      class="bottom-side-bar__image"
+      src="{{ imageSrc }}"
+      alt="profile picture"
+    />
+    <span id="update-image-text" class="bottom-side-bar__update-image-text">
+      Загрузить фотографию
+    </span>
+  </button>
+
+  <form
+    class="bottom-side-bar__form"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    {{ inputs.profile_picture }}
+    {{ inputs.username }}
+    {{ inputs.first_name }}
+    {{ inputs.last_name }}
+    <button type="submit" class="bottom-side-bar__submit-button">
+      Сохранить изменения
+    </button>
+  </form>
+</div>

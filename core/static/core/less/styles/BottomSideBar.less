@@ -1,0 +1,98 @@
+@import '../main.less';
+
+.bottom-side-bar {
+  .position(absolute, @bottom: 0);
+
+  padding: 20px;
+  height: min-content;
+  width: 100%;
+  background-color: @primary-color;
+  .border(solid, @border-color, 0.5px 0 0, 16px 16px 0 0);
+
+  .flexible(center, flex-start, column, @gap: 12px);
+  display: none;
+
+  &__image {
+    height: 100px;
+    width: 100px;
+    background-color: @white-color;
+    .border(solid, @white-color, 5px, 50%);
+
+    &-input {
+      display: none;
+    }
+  }
+
+  &__update-image-text {
+    color: @white-color;
+    font-size: 18px;
+
+    display: none;
+  }
+
+  &__form {
+    width: 100%;
+
+    .flexible(center, flex-start, column, @gap: 12px);
+  }
+
+  &__input {
+    height: 44px;
+    width: 100%;
+    max-width: @default-max-width;
+    background-color: transparent;
+    .border(solid, @white-color, 0 0 1px);
+
+    color: @white-color;
+    font-size: 17px;
+
+    &::placeholder {
+      color: @white-color;
+      font-weight: 300;
+    }
+  }
+
+  &__submit-button {
+    width: 100%;
+    max-width: @button-max-width;
+    height: 48px;
+    background-color: @white-color;
+    border-radius: 20px;
+
+    font-size: 18px;
+
+    transition: background-color @default-transition-settings;
+
+    &:active {
+      background-color: @black-color--blured;
+    }
+  }
+
+  &--opened {
+    animation: openBottomSideBar @default-animation-settings;
+  }
+
+  &--closed {
+    animation: closeBottomSideBar @default-animation-settings;
+  }
+}
+
+@keyframes openBottomSideBar {
+  from {
+    bottom: -370px;
+  }
+
+  to {
+    bottom: 0;
+  }
+}
+
+@keyframes closeBottomSideBar {
+  from {
+    bottom: 0;
+  }
+
+  to {
+    bottom: -370px;
+  }
+}

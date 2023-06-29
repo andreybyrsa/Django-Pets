@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- styles -->
+    <link rel="stylesheet/less" href="{% static 'core/less/styles/PageLayout.less' %}" />
+    {% block style-files %}{% endblock %}
+
+    <!-- icons https://icons.getbootstrap.com -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+
+    <!-- less compiler -->
+    <script src="https://cdn.jsdelivr.net/npm/less" type="text/javascript"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <!-- modals -->
+    <div id="modal-layout" class="page-layout-modal">
+      {% block modal %}{% endblock %}
+    </div>
+
+    <!-- page layout -->
+    <div class="page-layout">
+      <header class="page-layout__header">
+        {% block header %}{% endblock %}
+      </header>
+
+      <section class="page-layout__content">
+        {% block content %}{% endblock %}
+      </section>
+
+      <footer class="page-layout__footer">
+        {% block footer %}{% endblock %}
+      </footer>
+    </div>
+
+    <!-- scripts -->
+    <script type="text/javascript" src="{% static 'core/js/PageLayout.js' %}"></script>
+    <script type="text/javascript" src="{% static 'core/js/AlertModal.js' %}"></script>
+    {% block script-files %}{% endblock %}
+  </body>
+</html>

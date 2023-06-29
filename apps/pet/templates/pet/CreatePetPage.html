@@ -1,0 +1,35 @@
+{% extends 'core/pages/PageLayout.html' %}
+{% load static %}
+
+{% block style-files %}
+  <link rel="stylesheet/less" href="{% static 'pet/less/CreatePetPage.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/HeaderBlock.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/AlertModal.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/LeftSideBar.less' %}" />
+{% endblock %}
+
+{% block title %}Создание питомца{% endblock %}
+
+{% block modal %}
+  {% include 'core/modals/AlertModal.html' %}
+  {% include 'core/modals/LeftSideBar.html' with sideBarTitle="Создание" paths="index,profile,pets" %}
+{% endblock %}
+
+{% block header %}
+  {% include 'core/blocks/HeaderBlock.html' with pageClassName="create-pet-page" title=habitat %}
+{% endblock %}
+
+{% block content %}
+  <form method="POST" class="create-pet-page__form" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ create_pet_form.name }}
+    {{ create_pet_form.select_image }}
+    {{ create_pet_form.description }}
+    <button type="submit" class="create-pet-page__submit-button">Создать питомца</button>
+  </form>
+{% endblock %}
+
+{% block script-files %}
+  <script type="text/javascript" src="{% static 'core/js/SideBar.js' %}"></script>
+  <script type="text/javascript" src="{% static 'pet/js/CreatePetPage.js' %}"></script>
+{% endblock %}

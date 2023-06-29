@@ -1,0 +1,18 @@
+<div id="left-side-bar" class="left-side-bar">
+  <div class="left-side-bar__header">
+    <b><span>{{ sideBarTitle }}</span></b>
+    <button id="close-left-side-bar-button">
+      <i class="bi bi-arrow-left-square left-side-bar__header-icon"></i>
+    </button>
+  </div>
+
+  {% for path in paths|split:"," %}
+    <a class="left-side-bar__cell" href="{% url path %}">
+      <i class="{{ icon }}"></i>
+      <span>{{ path|pathName }}</span>
+      <i class="bi bi-arrow-right"></i>
+    </a>
+  {% endfor %}
+
+  <a class="left-side-bar__logout-button" href="{% url 'logout' %}">Выйти</a>
+</div>

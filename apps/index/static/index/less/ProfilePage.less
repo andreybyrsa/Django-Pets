@@ -1,0 +1,58 @@
+@import '/static/core/less/main.less';
+
+.profile-page {
+
+  &__content {
+    .flexible(center, flex-start, column);
+  }
+
+  &__image {
+    width: 160px;
+    height: 160px;
+    background-color: @white-color;
+    .border(solid, @white-color, 8px, 50%);
+  }
+
+  &__username {
+    margin-top: 4px;
+
+    font-size: 28px;
+
+    display: block;
+  }
+
+  &__info {
+    margin-top: 15px;
+    width: 100%;
+
+    .flexible(center, flex-start, @flex-direction: column, @gap: 12px);
+
+    &-cell {
+      height: 52px;
+      width: 100%;
+      max-width: @default-max-width;
+      .border(solid, @black-color, 1px 0);
+
+      font-size: 18px;
+
+      .flexible(center, flex-start);
+    }
+  }
+
+  &__update-button {
+    margin-top: 12px;
+    width: 100%;
+    max-width: @button-max-width;
+    height: 45px;
+    background-color: @white-color;
+    border-radius: 20px;
+
+    font-size: 18px;
+
+    transition: background-color @default-transition-settings;
+
+    &:active {
+      background-color: @black-color--blured;
+    }
+  }
+}

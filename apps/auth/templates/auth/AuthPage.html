@@ -1,0 +1,52 @@
+{% extends 'core/pages/PageLayout.html' %}
+{% load static %}
+
+{% block style-files %}
+  <link rel="stylesheet/less" href="{% static 'auth/less/AuthPage.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/AlertModal.less' %}" />
+{% endblock %}
+
+{% block modal %}
+  {% include 'core/modals/AlertModal.html' %}
+{% endblock %}
+
+{% block content %}
+  <div class="auth-page__greetings">
+    {% block auth-greetings %}{% endblock %}
+  </div>
+
+  <div class="auth-page__form-wrapper">
+    {% block form-label %}{% endblock %}
+    <form class="auth-page__form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% block inputs %}{% endblock %}
+      <button class="auth-page__submit-button" type="submit">
+        {% block button-text %}{% endblock %}
+      </button>
+    </form>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  <a
+    id="nav-tab-login"
+    class="auth-page__nav-tab"
+    href="{% url 'login' %}"
+  >
+    <i class="bi bi-check-circle auth-page__nav-tab-icon"></i>
+    <span class="auth-page__nav-tab-text">Вход</span>
+  </a>
+
+  <a
+    id="nav-tab-register"
+    class="auth-page__nav-tab"
+    href="{% url 'register' %}"
+  >
+    <i class="bi bi-plus-circle auth-page__nav-tab-icon"></i>
+    <span class="auth-page__nav-tab-text">Регистрация</span>
+  </a>
+{% endblock %}
+
+{% block script-files %}
+  <script type="text/javascript" src="{% static 'auth/js/AuthPage.js' %}"></script>
+{% endblock %}

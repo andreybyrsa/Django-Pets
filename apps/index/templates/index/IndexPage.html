@@ -1,0 +1,75 @@
+{% extends 'core/pages/PageLayout.html' %}
+{% load static %}
+
+{% block style-files %}
+  <link rel="stylesheet/less" href="{% static 'index/less/IndexPage.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/HeaderBlock.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/AlertModal.less' %}" />
+  <link rel="stylesheet/less" href="{% static 'core/less/styles/LeftSideBar.less' %}" />
+{% endblock %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block modal %}
+  {% include 'core/modals/AlertModal.html' %}
+  {% include 'core/modals/LeftSideBar.html' with sideBarTitle="Главная" paths="index,profile,pets" %}
+{% endblock %}
+
+{% block header %}
+  {% include 'core/blocks/HeaderBlock.html' with pageClassName="index-page" title="django" %}
+{% endblock %}
+
+{% block content %}
+  <a
+    class="index-page__card index-page__card--jungle-bg"
+    href="{% url 'create-pet' habitat='jungle' %}"
+  >
+    <div id="snake-area" class="index-page__pet-area">
+      <h2>jungle</h2>
+      <img
+        id="pet-snake"
+        class="index-page__pet-image"
+        style="left: 0;"
+        src="{% static 'index/images/snake.gif' %}"
+        alt="snake"
+      />
+    </div>
+  </a>
+
+  <a
+    class="index-page__card index-page__card--ocean-bg"
+    href="{% url 'create-pet' habitat='ocean' %}"
+  >
+    <div id="fish-area" class="index-page__pet-area">
+      <h2>ocean</h2>
+      <img
+        id="pet-fish"
+        class="index-page__pet-image"
+        style="left: 0;"
+        src="{% static 'index/images/fish.gif' %}"
+        alt="fish"
+      />
+    </div>
+  </a>
+
+  <a
+    class="index-page__card index-page__card--antarctica-bg"
+    href="{% url 'create-pet' habitat='antarctica' %}"
+  >
+    <div id="fox-area" class="index-page__pet-area">
+      <h2>antarctica</h2>
+      <img
+        id="pet-fox"
+        class="index-page__pet-image"
+        style="left: 0;"
+        src="{% static 'index/images/fox.gif' %}"
+        alt="fox"
+      />
+    </div>
+  </a>
+{% endblock %}
+
+{% block script-files %}
+  <script type="text/javascript" src="{% static 'core/js/SideBar.js' %}"></script>
+  <script type="text/javascript" async src="{% static 'index/js/IndexPage.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,4 @@
+Django==4.2.2
+urllib3==1.25.11
+imagekitio==3.0.1
+Pillow==9.5.0

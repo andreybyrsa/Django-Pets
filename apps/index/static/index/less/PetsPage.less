@@ -1,0 +1,94 @@
+@import '/static/core/less/main.less';
+
+.pets-page {
+
+  &__content {
+    .gridable(repeat(auto-fill, minmax(120px, 1fr)),
+      repeat(auto-fit, 180px),
+      10px);
+  }
+
+  &__footer {
+    padding: 10px 30px;
+  }
+
+  &__card {
+    &-wrapper {
+      padding: 12px;
+      height: 180px;
+      width: 100%;
+      background-color: @white-color;
+      border-radius: 20px;
+
+      cursor: pointer;
+    }
+
+    width: 100%;
+    height: 100%;
+
+    .flexible(center, space-between, column, @gap: 12px);
+
+    &-image {
+      width: 100%;
+      height: 120px;
+      border-radius: 20px;
+    }
+
+    &-text {
+      width: 100%;
+      height: 20px;
+
+      overflow: hidden;
+      white-space: nowrap;
+
+      text-overflow: ellipsis;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+
+  &__redirect-form {
+    width: 100%;
+
+    .flexible(center, center);
+  }
+
+  &__create-pet-button {
+    height: 48px;
+    width: 100%;
+    max-width: @default-max-width;
+    background-color: @white-color;
+    border-radius: 20px;
+
+    .flexible(center, center);
+
+    transition: background-color @default-transition-settings;
+
+    &:active {
+      background-color: @black-color--blured;
+
+      color: @white-color
+    }
+  }
+
+  &__button-icon {
+    font-size: 30px;
+
+    display: flex;
+
+    transition: color @default-transition-settings;
+  }
+
+  &__button-text {
+    font-size: 18px;
+
+    transition: color @default-transition-settings;
+  }
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  background-color: @white-color;
+  border-radius: 20px;
+}

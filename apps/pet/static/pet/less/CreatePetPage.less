@@ -1,0 +1,64 @@
+@import '/static/core/less/main.less';
+
+.create-pet-page {
+
+  &__form {
+    width: 100%;
+
+    color: @white-color;
+
+    .flexible(center, flex-start, column, @gap: 15px);
+
+    &-input,
+    &-select {
+      height: 44px;
+      width: 100%;
+      background-color: transparent;
+      .border(solid, @white-color, 0 0 1px);
+
+      font-size: 16px;
+      color: @white-color;
+
+      &::placeholder {
+        color: @white-color;
+        font-weight: 300;
+      }
+    }
+
+    &-upload-image {
+      display: none;
+    }
+
+    &-text-area {
+      padding: 12px;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      .border(solid, @white-color, 1px, 20px);
+
+      resize: none;
+
+      &::placeholder {
+        color: @white-color;
+        font-weight: 300;
+      }
+    }
+  }
+
+  &__submit-button {
+    width: 100%;
+    height: 48px;
+    background-color: @white-color;
+    border-radius: 20px;
+
+    color: @black-color;
+    font-size: 18px;
+    font-weight: 500;
+
+    transition: background-color @default-transition-settings;
+
+    &:active {
+      background-color: @black-color--blured;
+    }
+  }
+}

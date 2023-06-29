@@ -1,0 +1,116 @@
+@import '../main.less';
+
+.alert-modal {
+  width: 300px;
+  background-color: @white-color;
+  border-radius: 20px;
+
+  .flexible(
+    center,
+    flex-start,
+    column,
+    @aling-self: center,
+    @justify-self: center
+  );
+
+  &__header {
+    padding: 12px 12px 0;
+    width: 100%;
+
+    .flexible(@justify-content: flex-end);
+
+    &-button {
+      position: relative;
+
+      width: 30px;
+      height: 30px;
+    }
+
+    &-icon {
+      position: absolute;
+
+      height: 3px;
+      width: 100%;
+      background-color: @black-color;
+      border-radius: 12px;
+    }
+
+    &-icon:first-of-type {
+      transform: rotate(45deg);
+    }
+
+    &-icon:last-of-type {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__content {
+    padding: 25px;
+    width: 100%;
+
+    .flexible(center, flex-start, column, @gap: 12px);
+  }
+
+  &__info {
+    .flexible(center, center, column);
+
+    &-icon {
+      font-size: 80px;
+
+      display: flex;
+    }
+
+    &--success {
+      color: @success-color;
+    }
+
+    &--error {
+      color: @error-color;
+    }
+  }
+
+  &__title {
+    font-size: 50px;
+  }
+
+  &__message {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  &--opened {
+    animation: openAlertModal @default-animation-settings;
+  }
+
+  &--closed {
+    animation: closeAlertModal @default-animation-settings;
+  }
+}
+
+@keyframes openAlertModal {
+  from {
+    opacity: 0;
+
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+@keyframes closeAlertModal {
+  from {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+
+    transform: scale(0.95);
+  }
+}

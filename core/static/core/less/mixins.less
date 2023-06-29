@@ -1,0 +1,85 @@
+.position(
+  @position: static,
+  @top: auto,
+  @right: auto,
+  @bottom: auto,
+  @left: auto,
+  @z-index: 0
+) {
+  position: @position;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+  z-index: @z-index;
+}
+
+.border(
+  @border-style: none,
+  @border-color: transparent,
+  @border-widths: none,
+  @border-radii: 0
+) {
+  border-style: @border-style;
+  border-color: @border-color;
+  border-radius: @border-radii;
+
+  & when not (@border-widths = none) {
+    border-width: @border-widths;
+  }
+}
+
+.flexible(
+  @align-items: flex-start,
+  @justify-content: flex-start,
+  @flex-direction: row,
+  @aling-self: none,
+  @justify-self: none,
+  @flex-wrap: nowrap,
+  @gap: 0
+) {
+  display: flex;
+  flex-direction: @flex-direction;
+  justify-content: @justify-content;
+  align-items: @align-items;
+  flex-wrap: @flex-wrap;
+
+  & when not (@aling-self = none) {
+    align-self: @aling-self;
+  }
+  & when not (@justify-self = none) {
+    justify-self: @justify-self;
+  }
+      
+  & when not (@gap = 0) {
+    gap: @gap;
+  }
+}
+
+.gridable(
+  @grid-columns: none,
+  @grid-rows: none,
+  @gap: 0,
+  @align-items: flex-start,
+  @align-content: stretch,
+  @justify-items: stretch,
+  @justify-content: flex-start,
+) {
+  display: grid;
+  justify-content: @justify-content;
+  align-content: @align-content;
+  justify-items: @justify-items;
+  align-items: @align-items;
+
+  & when not (@grid-columns = none) {
+    grid-template-columns: @grid-columns;
+  }
+
+  & when not (@grid-rows = none) {
+    grid-template-rows: @grid-rows;
+  }
+
+  & when not (@gap = 0) {
+    gap: @gap;
+  }
+}
