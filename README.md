@@ -1,4 +1,6 @@
-# <div style="font-size: 35px; display: flex; align-items: center; gap: 20px;"><img src='https://static.djangoproject.com/img/logos/django-logo-negative.svg' height='60'/>**Django Pets**</div>
+<img src='https://static.djangoproject.com/img/logos/django-logo-negative.svg' height='60'/>
+
+# Django Pets
 
 Django Pets project is a fullstack developed app with custom User Model, API for storing images and another Models with different relationship between them.
 
@@ -8,10 +10,10 @@ There is some alghoritm inside an Index Page, which implementing pet's walking. 
 
 ## Documentation
 
-- [Introduction](##Django-Pets)
-- [Build](##Build)
-- [Docker](##Docker)
-- [Libraries](##Libraries)
+- [Introduction](#Django-Pets)
+- [Build](#Build)
+- [Docker](#Docker)
+- [Libraries](#Libraries)
 
 ## Build
 
