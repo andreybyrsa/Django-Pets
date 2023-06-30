@@ -29,7 +29,6 @@ class Pet(models.Model):
 
     def get_pet(self) -> dict:
         return {
-            "owner": self.owner.get_user(),
             "name": self.name,
             "habitat": self.habitat.get_habitat(),
             "image": self.image.url,
