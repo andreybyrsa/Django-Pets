@@ -9,17 +9,17 @@ usePet("fox", 200);
 async function usePet(petName, delay) {
   await waitLoadingStyles("less:static-index-less-IndexPage");
 
-  const currentPet = document.getElementById(`pet-${petName}`);
-  const reversePetImageClass = "index-page__pet-image--reverse";
+  let currentPet = document.getElementById(`pet-${petName}`);
+  const REVERSE_PET_IMAGE_CLASS = "index-page__pet-image--reverse";
 
-  const currentPetWidth = currentPet.clientWidth;
+  let currentPetWidth = currentPet.clientWidth;
   let distance = 0;
-  const step = 10;
+  let step = 10;
   let side = "left";
 
   const go = () => {
-    const maxDistance = document.getElementById(`${petName}-area`).offsetWidth;
-    const currentDistance = currentPetWidth + distance;
+    let maxDistance = document.getElementById(`${petName}-area`).offsetWidth;
+    let currentDistance = currentPetWidth + distance;
 
     if (currentDistance + step < maxDistance) {
       distance += step;
@@ -31,10 +31,10 @@ async function usePet(petName, delay) {
       distance = 0;
       side = side === "left" ? "right" : "left";
 
-      if (currentPet.classList.contains(reversePetImageClass)) {
-        currentPet.classList.remove(reversePetImageClass);
+      if (currentPet.classList.contains(REVERSE_PET_IMAGE_CLASS)) {
+        currentPet.classList.remove(REVERSE_PET_IMAGE_CLASS);
       } else {
-        currentPet.classList.add(reversePetImageClass);
+        currentPet.classList.add(REVERSE_PET_IMAGE_CLASS);
       }
     }
   };

@@ -1,30 +1,30 @@
 addPageClassName("auth-page");
 
-const navTabLogin = document.getElementById("nav-tab-login");
-const navTabRegister = document.getElementById("nav-tab-register");
+let navTabLogin = document.getElementById("nav-tab-login");
+let navTabRegister = document.getElementById("nav-tab-register");
 
-const navTabActiveClass = "auth-page__nav-tab--active";
+const NAV_TAB_ACTIVE_CLASS = "auth-page__nav-tab--active";
 
-const pathname = window.location.pathname;
-const currentURLPath = pathname
+let pathname = window.location.pathname;
+let currentURLPath = pathname
   .split("/")
   .find((elem) => elem === "login" || elem == "register");
 
 if (currentURLPath === "login") {
-  navTabLogin.classList.add(navTabActiveClass);
+  navTabLogin.classList.add(NAV_TAB_ACTIVE_CLASS);
 } else {
-  navTabRegister.classList.add(navTabActiveClass);
+  navTabRegister.classList.add(NAV_TAB_ACTIVE_CLASS);
 }
 
-const image = document.getElementById("image");
-const imageInput = document.getElementById("image-input");
+let image = document.getElementById("image");
+let imageInput = document.getElementById("image-input");
 
-const uploadImageButton = document.getElementById("upload-image-button");
-const uploadImageTextButton = document.getElementById(
+let uploadImageButton = document.getElementById("upload-image-button");
+let uploadImageTextButton = document.getElementById(
   "upload-image-text-button"
 );
 
-const uploadTextAlert = document.getElementById("upload-text-alert");
+let uploadTextAlert = document.getElementById("upload-text-alert");
 
 if (uploadImageButton) {
   uploadImageButton.addEventListener("click", () => {
@@ -32,7 +32,7 @@ if (uploadImageButton) {
   });
 
   imageInput.addEventListener("change", (event) => {
-    const currentImage = URL.createObjectURL(event.target.files[0]);
+    let currentImage = URL.createObjectURL(event.target.files[0]);
 
     if (currentImage) {
       image.src = currentImage;

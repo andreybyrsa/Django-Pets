@@ -1,18 +1,18 @@
-const modalLayout = document.getElementById("modal-layout");
+let modalLayout = document.getElementById("modal-layout");
 
-const openingModalLayoutClass = "page-layout-modal--opened";
-const closingModalLayoutClass = "page-layout-modal--closed";
+const OPENING_MODAL_LAYOUT_CLASS = "page-layout-modal--opened";
+const CLOSING_MODAL_LAYOUT_CLASS = "page-layout-modal--closed";
 
 function openModal() {
   modalLayout.style.display = "grid";
-  modalLayout.classList.add(openingModalLayoutClass);
+  modalLayout.classList.add(OPENING_MODAL_LAYOUT_CLASS);
 }
 
 function closeModal() {
-  modalLayout.classList.add(closingModalLayoutClass);
+  modalLayout.classList.add(CLOSING_MODAL_LAYOUT_CLASS);
   setTimeout(() => {
-    modalLayout.classList.remove(openingModalLayoutClass);
-    modalLayout.classList.remove(closingModalLayoutClass);
+    modalLayout.classList.remove(OPENING_MODAL_LAYOUT_CLASS);
+    modalLayout.classList.remove(CLOSING_MODAL_LAYOUT_CLASS);
     modalLayout.style.display = "none";
   }, 300);
 }
@@ -24,13 +24,13 @@ modalLayout.addEventListener("click", (event) => {
 });
 
 function addPageClassName(className) {
-  const pageLayoutElements = Array.from(
+  let pageLayoutElements = Array.from(
     document.querySelectorAll("[class^=page-layout]")
   ).slice(1);
 
   pageLayoutElements.forEach((element) => {
-    const currentClassName = element.className;
-    const childClassName = element.className.split("__")[1];
+    let currentClassName = element.className;
+    let childClassName = element.className.split("__")[1];
 
     if (childClassName) {
       element.className = `${className}__${childClassName} ${currentClassName}`;
@@ -42,15 +42,15 @@ function addPageClassName(className) {
 
 async function waitLoadingStyles(styleSheetId) {
   await new Promise((resolve, reject) => {
-    const loadedStyleSheet = document.getElementById(styleSheetId);
+    let loadedStyleSheet = document.getElementById(styleSheetId);
 
     if (loadedStyleSheet) {
       resolve("Style Sheet was load");
       return;
     }
 
-    const intervalId = setInterval(() => {
-      const loadedStyleSheet = document.getElementById(styleSheetId);
+    let intervalId = setInterval(() => {
+      let loadedStyleSheet = document.getElementById(styleSheetId);
 
       if (loadedStyleSheet) {
         resolve("Style Sheet was load");

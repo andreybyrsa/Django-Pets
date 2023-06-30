@@ -1,26 +1,26 @@
 function useSideBar(side) {
-  const sideBar = document.getElementById(`${side}-side-bar`);
+  let sideBar = document.getElementById(`${side}-side-bar`);
 
-  const openSideBarButton = document.getElementById(
+  let openSideBarButton = document.getElementById(
     `open-${side}-side-bar-button`
   );
-  const closeSideBarButton = document.getElementById(
+  let closeSideBarButton = document.getElementById(
     `close-${side}-side-bar-button`
   );
 
-  const openingSideBarClass = `${side}-side-bar--opened`;
-  const closingSideBarClass = `${side}-side-bar--closed`;
+  const OPENING_SIDE_BAR_CLASS = `${side}-side-bar--opened`;
+  const CLOSING_SIDE_BAR_CLASS = `${side}-side-bar--closed`;
 
   const openSideBar = () => {
     sideBar.style.display = "flex";
-    sideBar.classList.add(openingSideBarClass);
+    sideBar.classList.add(OPENING_SIDE_BAR_CLASS);
   };
 
   const closeSideBar = () => {
-    sideBar.classList.add(closingSideBarClass);
+    sideBar.classList.add(CLOSING_SIDE_BAR_CLASS);
     setTimeout(() => {
-      sideBar.classList.remove(openingSideBarClass);
-      sideBar.classList.remove(closingSideBarClass);
+      sideBar.classList.remove(OPENING_SIDE_BAR_CLASS);
+      sideBar.classList.remove(CLOSING_SIDE_BAR_CLASS);
       sideBar.style.display = "none";
     }, 300);
   };

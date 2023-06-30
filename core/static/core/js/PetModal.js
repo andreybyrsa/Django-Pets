@@ -1,20 +1,20 @@
-const petModal = document.getElementById("pet-modal");
+let petModal = document.getElementById("pet-modal");
 
-const petModalCloseButton = document.getElementById("close-pet-modal-button");
+let petModalCloseButton = document.getElementById("close-pet-modal-button");
 
-const openPetModalClass = "pet-modal--opened";
-const closePetModalClass = "pet-modal--closed";
+const OPEN_PET_MODAL_CLASS = "pet-modal--opened";
+const CLOSE_PET_MODAL_CLASS = "pet-modal--closed";
 
 function openPetModal() {
   petModal.style.display = "flex";
-  petModal.classList.add(openPetModalClass);
+  petModal.classList.add(OPEN_PET_MODAL_CLASS);
 }
 
 function closePetModal() {
-  petModal.classList.add(closePetModalClass);
+  petModal.classList.add(CLOSE_PET_MODAL_CLASS);
   setTimeout(() => {
-    petModal.classList.remove(openPetModalClass);
-    petModal.classList.remove(closePetModalClass);
+    petModal.classList.remove(OPEN_PET_MODAL_CLASS);
+    petModal.classList.remove(CLOSE_PET_MODAL_CLASS);
     petModal.style.display = "none";
   }, 300);
 }

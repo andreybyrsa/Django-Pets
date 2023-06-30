@@ -1,23 +1,23 @@
 let alertModal = document.getElementById("alert-modal");
 
-const closeAlertModalButton = document.getElementById(
+let closeAlertModalButton = document.getElementById(
   "close-alert-modal-button"
 );
 
-const openingAlertModalClass = "alert-modal--opened";
-const closingAlertModalClass = "alert-modal--closed";
+const OPENING_ALERT_MODAL_CLASS = "alert-modal--opened";
+const CLOSING_ALERT_MODAL_CLASS = "alert-modal--closed";
 
 if (alertModal !== null) {
   openAlertModal();
 }
 
 function openAlertModal() {
-  alertModal.classList.add(openingAlertModalClass);
+  alertModal.classList.add(OPENING_ALERT_MODAL_CLASS);
   openModal();
 }
 
 function closeAlertModal() {
-  alertModal.classList.add(closingAlertModalClass);
+  alertModal.classList.add(CLOSING_ALERT_MODAL_CLASS);
   setTimeout(() => {
     alertModal.remove();
     alertModal = null;
