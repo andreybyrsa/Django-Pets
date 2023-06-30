@@ -2,8 +2,13 @@
 
 .create-pet-page {
 
+  &__content {
+    .flexible(flex-start, center);
+  }
+
   &__form {
     width: 100%;
+    max-width: @default-max-width;
 
     color: @white-color;
 
@@ -47,6 +52,7 @@
 
   &__submit-button {
     width: 100%;
+    max-width: @button-max-width;
     height: 48px;
     background-color: @white-color;
     border-radius: 20px;
