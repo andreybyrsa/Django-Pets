@@ -26,7 +26,7 @@ cd django-pets
 ```
 
 ```
-git pull https://github.com/andreybyrsa/Django-Pets.git
+git clone https://github.com/andreybyrsa/Django-Pets.git
 ```
 
 ```
